@@ -1,0 +1,39 @@
+doctype 5
+html
+  head
+    block title
+      title Kouch
+    link(rel='stylesheet', href='/css/style.css')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  body
+    div.container
+      header
+        nav.navbar.navbar-default.navbar-fixed-top.navbar-fixed-ttc(role='navigation')
+          ul.list-inline
+            li 
+              a.btn.btn-ttc.button.btn-primary(href="/search/") Search 
+            li
+              a.btn.btn-ttc.button.btn-primary(href="/") Queue 
+            li
+              a.btn.btn-ttc.button(href="/history/") 
+                span.glyphicon.glyphicon-time
+            li
+              a(href="javascript:(function(){ window.open('http://' + getIP + '/api/url/h' + encodeURIComponent(location.href)); })();", onclick="return false", style="cursor:default;")
+                span.label.label-default Kouch Bookmarklet
+
+      div.main.padding-left 
+        block content
+
+      nav.navbar.navbar-default.navbar-fixed-bottom.navbar-fixed-ttc(role='navigation')
+        include remote-control
+
+      footer
+        p Coded @ Metalab
+
+
+    script(src='/js/jquery-2.0.3.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/init.js')
+    script(src='/js/queue.js')
+    script(src='/js/search.js')
+    script(src='/js/socket.js')

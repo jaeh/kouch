@@ -1,0 +1,28 @@
+extends ../layout
+
+block title
+  title Kouch Queue
+
+block content
+  div.row
+    div#queue.video.padding-top.padding-bottom.padding-right
+      if mediaFiles
+        for media in mediaFiles
+          div.media.media-ttc(class= media.isPlaying ? playing : '')
+            a.pull-left
+              img.media-object(width='64', height='64', src=media.thumbnail)
+            div.media-body
+              h4.media-heading
+                a(href=media.originUrl, target='utopia', title='open in new tab')= media.title
+              button.btn.btn-ttc.btn-primary.playStart(type="button", data-id=media.youtubeId)
+                span.glyphicon.glyphicon-play
+                | play
+
+              button.btn.btn-ttc.btn-primary.del(type="button", data-id=media.youtubeId)
+                span.glyphicon.glyphicon-trash              
+  
+              if media.duration
+                span.glyphicon.glyphicon-time= media.duration
+      else
+        p No Playlist 
+      

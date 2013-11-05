@@ -1,0 +1,27 @@
+div.row
+  div.padding-right.input-group
+    input#query.form-control(type="text", placeholder="url / search")
+    div.input-group-btn
+      a#search.btn.btn-ttc.button.btn-primary
+        | Youtube Search 
+        span.glyphicon.glyphicon-play
+
+  div.video.padding-top.padding-bottom(style="display: block;")
+    if searchQueryResults  
+      for result in searchQueryResults
+        div.media
+          a.pull-left(href="#")
+            img.media-object(width='64', height='64', src=thumbnail)
+          div.media-body
+            h4.media-heading= title
+
+            button.btn.btn-ttc.btn-primary.addToPlaylist(type='button', data-title=result.title, data-thumbnail=result.thumbnail, data-url=result.url, data-id=result.youtubeId)
+              span.glyphicon.glyphicon-plus
+              | Add
+            if duration
+              span.glyphicon.glyphicon-time= duration
+            
+            if duration
+              span.glyphicon.glyphicon-time= duration
+    
+    

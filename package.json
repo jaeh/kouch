@@ -1,0 +1,17 @@
+{
+  "name": "kouch",
+  "version": "0.0.1",
+  "description": "yet another kouch.",
+  "scripts": {
+    "testenv": "nodemon kouch.js --delay 1 -e js,less,jade --debug"
+  },
+  "dependencies": {
+    "express": "latest",
+    "jade": "latest",
+    "stylus": "latest",
+    "nedb": "latest",
+    "async": "latest",
+    "socket.io": "latest",
+    "less-middleware": "~0.1.12"
+  }
+}

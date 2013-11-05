@@ -1,0 +1,51 @@
+if currentVideo
+  div.row
+    div.row.padding-left">
+      div.col-xs-2.col-md-2
+        img(width='50', height='50', src=currentVideo.thumbnail)
+      div.col-xs-6
+        h5.bottom= currentVideo.title
+          if currentVideo.duration 
+            span.glyphicon.glyphicon-time= currentVideo.duration
+      div.col-xs-2.padding-top
+          button.btn.btn-ttc.button.remote.toggle-controller(data-event='toggle-controller')
+            span.glyphicon.glyphicon.glyphicon-expand
+    div.row
+      div.controller.padding-left.padding-bottom.hide(data-event='hide')        
+        div.col-xs-offset-2.col-md-offset-1.col-xs-12      
+          div.btn-group
+            button.btn.btn-ttc.button.btn-default.remote.backward(data-event='backward')
+              span.glyphicon.glyphicon-fast-backward
+            
+            button.btn.btn-ttc.button.btn-default.remote.left(data-event='pause')
+              span.glyphicon.glyphicon-backward 
+            
+            button.btn.btn-ttc.button.btn-default.remote.pause(data-event='pause')
+              if playerState.play 
+                &nbsp;
+                span.glyphicon.glyphicon-pause
+                &nbsp;
+              else
+                &nbsp;
+                span.glyphicon.glyphicon-play
+                &nbsp;
+              
+            button.btn.btn-ttc.button.btn-default.remote.stop(data-event="stop")
+              span.glyphicon.glyphicon-stop
+            
+            button.btn.btn-ttc.button.btn-default.remote.right(data-event="right")
+              span.glyphicon.glyphicon-forward
+            
+            button.btn.btn-ttc.button.btn-default.remote.forward(data-event="forward")
+              span.glyphicon.glyphicon-fast-forward
+      
+            button.btn.button.remote.queueMode(class=playerState.queue ? btn-success : '')
+              span.glyphicon.glyphicon-retweet
+            
+
+            button.btn.btn-ttc.button.btn-default.remote.toggle-sound
+              span.glyphicon.glyphicon-volume-up
+            
+        div.col-xs-offset-2.col-md-offset-1.col-xs-10.col-md-10.padding-left
+          div.volslider.hide(data-event='hide')
+            input.progress.pull-right(type="range", name="slider", id="slider", value="{{playerState.volume}}", min="0", max="100")
